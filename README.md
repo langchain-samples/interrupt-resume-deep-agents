@@ -8,11 +8,11 @@ This technical session covers the harness architecture, tools, subagents, memory
 
 | # | Module | Duration | Notebook |
 |---|--------|----------|----------|
-| **1** | Deep Agents — Build a research agent from scratch using `create_deep_agent`. Covers the harness architecture, custom tools, subagents, backends, middleware, human-in-the-loop, and skills. | ~60 min | `modules/01_deep_agents.ipynb` |
-| | **Break — Build your own agent!** | | `my_agent/` |
-| **2** | Deploy — Ship your agent to LangSmith Deployments with the `langgraph` CLI. Test locally in Studio, validate, and deploy. | ~30 min | `modules/02_deploy.ipynb` |
-| | **Break — Test & ship your agent!** | | |
-| **3** | LangSmith — Trace your agent, query runs, and build offline evals (LLM-as-judge + trajectory). Set up online evals and annotation queues to score and review production traffic automatically. | ~30 min | `modules/03_langsmith.ipynb` |
+| **1** | Deep Agents: Build a research agent from scratch using `create_deep_agent`. Covers the harness architecture, custom tools, subagents, backends, middleware, human-in-the-loop, and skills. | ~60 min | `modules/01_deep_agents.ipynb` |
+| | **Break: Build your own agent!** | | `my_agent/` |
+| **2** | Deploy: Ship your agent to LangSmith Deployments with the `langgraph` CLI. Test locally in Studio, validate, and deploy. | ~30 min | `modules/02_deploy.ipynb` |
+| | **Break: Test & ship your agent!** | | |
+| **3** | LangSmith: Trace your agent, query runs, and build offline evals (LLM-as-judge + trajectory). Set up online evals and annotation queues to score and review production traffic automatically. | ~30 min | `modules/03_langsmith.ipynb` |
 
 ## Prework Setup
 
