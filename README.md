@@ -43,7 +43,7 @@ Open `.env` and set **all three** keys:
 | Key | Get one |
 |-----|---------|
 | `OPENAI_API_KEY` | <https://platform.openai.com> |
-| `LANGSMITH_API_KEY` | <https://smith.langchain.com> |
+| `LANGSMITH_API_KEY` | <https://smith.langchain.com> — create a **Service Key** (`lsv2_sk_...`) under Settings → API Keys with **Admin** permissions (required for deployments) |
 | `TAVILY_API_KEY` | <https://tavily.com> |
 
 > **Using a different model provider?** Edit `utils/models.py` — uncomment the provider you want (Anthropic, Azure OpenAI, AWS Bedrock) and set the matching API key in `.env`. No notebook changes required.
