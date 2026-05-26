@@ -1,4 +1,4 @@
-# Production-Ready Agents
+# Deep Agents Lifecycle Workshop: Interrupt Resume
 
 Build a deep agent, deploy it to LangSmith Deployments, then evaluate it.
 
