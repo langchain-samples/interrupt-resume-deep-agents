@@ -4,51 +4,57 @@ Build a deep agent, deploy it to LangSmith Deployments, then evaluate it.
 
 This technical session covers the harness architecture, tools, subagents, memory, and human-in-the-loop patterns behind Deep Agents and gives you time to build your own. You'll close with deploying your agent to production, and leverage LangSmith tracing and evaluations to observe and improve what you've built.
 
-## Agenda (~90 min)
+## Agenda
 
 | # | Module | Duration | Notebook |
 |---|--------|----------|----------|
-| **1** | Deep Agents: Building a Research Agent | ~45 min | `modules/01_deep_agents.ipynb` |
-| **2** | Deploy — `langgraph` CLI + LangSmith Deployments | ~15 min | `modules/02_deploy.ipynb` |
-| **3** | LangSmith — Tracing, querying traces, offline + online evals, annotation queues | ~30 min | `modules/03_langsmith.ipynb` |
+| **1** | Deep Agents — Build a research agent from scratch using `create_deep_agent`. Covers the harness architecture, custom tools, subagents, backends, middleware, human-in-the-loop, and skills. | ~60 min | `modules/01_deep_agents.ipynb` |
+| | **Break — Build your own agent!** | | `my_agent/` |
+| **2** | Deploy — Ship your agent to LangSmith Deployments with the `langgraph` CLI. Test locally in Studio, validate, and deploy. | ~30 min | `modules/02_deploy.ipynb` |
+| | **Break — Test & ship your agent!** | | |
+| **3** | LangSmith — Trace your agent, query runs, and build offline evals (LLM-as-judge + trajectory). Set up online evals and annotation queues to score and review production traffic automatically. | ~30 min | `modules/03_langsmith.ipynb` |
 
-After Module 3, we break to **build your own agent from scratch** — see `my_agent/` for a ready-to-go scaffold.
+## Prework Setup
 
-## Prerequisites
+Complete these steps **before the session starts**.
+
+### 1. Prerequisites
 
 - Python 3.11+
 - [uv](https://docs.astral.sh/uv/getting-started/installation/) (recommended) or pip
+- A [LangSmith](https://smith.langchain.com) account
 
-## Setup
+### 2. Clone and install
 
 ```bash
-# 1. Clone the repo
 git clone <repo-url>
 cd deep-agents-interrupt-resume
-
-# 2. Install dependencies
 uv sync
+```
 
-# 3. Configure environment variables
+### 3. Set environment variables
+
+```bash
 cp .env.example .env
 ```
 
-Open `.env` and fill in the keys you need:
+Open `.env` and set **all three** keys:
 
-| Key | Required for | Get one |
-|-----|--------------|---------|
-| `OPENAI_API_KEY` | All modules (default model) | <https://platform.openai.com> |
-| `LANGSMITH_API_KEY` | Modules 2 & 3 (recommended for all) | <https://smith.langchain.com> |
-| `TAVILY_API_KEY` | Modules 1 & 2 (web search tool) | <https://tavily.com> |
+| Key | Get one |
+|-----|---------|
+| `OPENAI_API_KEY` | <https://platform.openai.com> |
+| `LANGSMITH_API_KEY` | <https://smith.langchain.com> |
+| `TAVILY_API_KEY` | <https://tavily.com> |
 
 > **Using a different model provider?** Edit `utils/models.py` — uncomment the provider you want (Anthropic, Azure OpenAI, AWS Bedrock) and set the matching API key in `.env`. No notebook changes required.
 
+### 4. Verify
+
 ```bash
-# 4. Start Jupyter
 uv run jupyter notebook
 ```
 
-Open the notebooks in order: `01_deep_agents.ipynb` → `02_deploy.ipynb` → `03_langsmith.ipynb`.
+Open `modules/01_deep_agents.ipynb` and run the first setup cell to confirm everything is working.
 
 ## Switching Models
 
@@ -107,7 +113,7 @@ Studio will show both `deep_agent` (the one from the modules) and `my_agent` (yo
 ## Project Structure
 
 ```
-production-ready-agents/
+deep-agents-interrupt-resume/
 ├── README.md                       (this file)
 ├── pyproject.toml                  (dependencies)
 ├── .env.example
