@@ -1,8 +1,8 @@
 # Deep Agents Lifecycle Workshop: Interrupt Resume
 
-Build a deep agent, deploy it to LangSmith Deployments, then evaluate it.
+Build a deep agent, deploy it to LangSmith Deployments, then continuously improve it with Engine.
 
-This technical session covers the harness architecture, tools, subagents, memory, and human-in-the-loop patterns behind Deep Agents and gives you time to build your own. You'll close with deploying your agent to production, and leverage LangSmith tracing and evaluations to observe and improve what you've built.
+This technical session covers the harness architecture, tools, subagents, memory, and human-in-the-loop patterns behind Deep Agents and gives you time to build your own. You'll close with deploying your agent to production and using LangSmith Engine to automatically detect failures, diagnose root causes, propose fixes, and generate evaluators — creating a continuous improvement flywheel for your agent.
 
 ## Agenda
 
@@ -12,7 +12,7 @@ This technical session covers the harness architecture, tools, subagents, memory
 | | **Break: Build your own agent!** | | `my_agent/` |
 | **2** | Deploy: Ship your agent to LangSmith Deployments with the `langgraph` CLI. Test locally in Studio, validate, and deploy. | ~30 min | `modules/02_deploy.ipynb` |
 | | **Break: Test & ship your agent!** | | |
-| **3** | LangSmith: Trace your agent, query runs, and build offline evals (LLM-as-judge + trajectory). Set up online evals and annotation queues to score and review production traffic automatically. | ~30 min | `modules/03_langsmith.ipynb` |
+| **3** | Engine: Continuously improve your deployed agent with LangSmith Engine. Engine automatically detects failures from production traces, diagnoses root causes against your codebase, proposes fixes, and generates evaluators to prevent regressions — closing the agent engineering flywheel. | ~30 min | Live demo |
 
 ## Prework Setup
 
@@ -121,9 +121,9 @@ deep-agents-interrupt-resume/
 ├── utils/
 │   ├── models.py                   (model provider config — edit to swap LLMs)
 │   ├── search.py                   (Tavily search with retry + fallback)
-│   └── langsmith_rules.py          (run rule helpers for Module 3)
+│   └── langsmith_rules.py          (run rule helpers)
 ├── agents/
-│   ├── research_agent.py           (shared agent factory — Module 3 imports for eval)
+│   ├── research_agent.py           (shared agent factory)
 │   └── deep_agent/                 (deployable agent for Module 2)
 │       ├── agent.py
 │       ├── AGENTS.md
@@ -137,8 +137,7 @@ deep-agents-interrupt-resume/
 ├── images/                         (diagrams used by the notebooks)
 └── modules/
     ├── 01_deep_agents.ipynb        (Module 1)
-    ├── 02_deploy.ipynb             (Module 2)
-    └── 03_langsmith.ipynb          (Module 3)
+    └── 02_deploy.ipynb             (Module 2)
 ```
 
 ## Common Issues
