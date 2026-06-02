@@ -117,5 +117,4 @@ agent = create_deep_agent(
     # store=store,                   # uncomment after configuring backends above
     # middleware=[audit_trail],      # uncomment after configuring middleware above
     # interrupt_on={"write_file": True},  # uncomment for human-in-the-loop
-    checkpointer=MemorySaver(),
 )
