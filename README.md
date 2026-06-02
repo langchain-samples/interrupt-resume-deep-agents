@@ -97,7 +97,7 @@ The scaffold is already wired up in `langgraph.json`, so you can test it immedia
 
 ```bash
 # Run locally with Studio UI
-langgraph dev --port 2024
+uv run langgraph dev --port 2024
 ```
 
 Studio will show both `deep_agent` (the one from the modules) and `my_agent` (yours). Select `my_agent` in the Studio dropdown to interact with it.
