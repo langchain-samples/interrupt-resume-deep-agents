@@ -34,6 +34,7 @@ cd deep-agents-interrupt-resume
 uv sync
 
 # Option B: pip
+python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
