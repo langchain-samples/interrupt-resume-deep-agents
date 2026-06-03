@@ -29,7 +29,12 @@ Complete these steps **before the session starts**.
 ```bash
 git clone <repo-url>
 cd deep-agents-interrupt-resume
+
+# Option A: uv (recommended)
 uv sync
+
+# Option B: pip
+pip install -r requirements.txt
 ```
 
 ### 3. Set environment variables
