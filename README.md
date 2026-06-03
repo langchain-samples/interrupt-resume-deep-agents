@@ -43,7 +43,7 @@ Open `.env` and set **all three** keys:
 | Key | Get one |
 |-----|---------|
 | `OPENAI_API_KEY` | <https://platform.openai.com> |
-| `LANGSMITH_API_KEY` | <https://smith.langchain.com> — create a **Service Key** (`lsv2_sk_...`) under Settings → API Keys with **Admin** permissions (required for deployments) |
+| `LANGSMITH_API_KEY` | <https://smith.langchain.com> — see [API key guide](#langsmith-api-key-guide) below |
 | `TAVILY_API_KEY` | <https://tavily.com> |
 
 > **Using a different model provider?** Edit `utils/models.py` — uncomment the provider you want (Anthropic, Azure OpenAI, AWS Bedrock) and set the matching API key in `.env`. No notebook changes required.
@@ -55,6 +55,17 @@ uv run jupyter notebook
 ```
 
 Open `modules/01_deep_agents.ipynb` and run the first setup cell to confirm everything is working.
+
+### LangSmith API Key Guide
+
+Go to <https://smith.langchain.com> → Settings → API Keys to create a key.
+
+| Key type | Prefix | Tracing | Deployments | Notes |
+|----------|--------|---------|-------------|-------|
+| **Personal Access Token** | `lsv2_pt_...` | Yes | No | Any user can create one. Easiest option for tracing during the workshop. |
+| **Service Key (workspace-scoped)** | `lsv2_sk_...` | Yes | Yes | Must be scoped to a **specific workspace**, not the org. Required for `langgraph deploy`. |
+
+> **Important:** If you create an org-scoped service key (the default), all API calls will return **403 Forbidden**. When creating a service key, select your workspace (e.g. "Workspace 1") instead of "Organization" to scope it correctly.
 
 ## Switching Models
 
