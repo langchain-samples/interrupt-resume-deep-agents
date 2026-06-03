@@ -93,7 +93,7 @@ model = init_chat_model("openai:gpt-4.1-mini")
 
 Module 2 deploys the agent at `agents/deep_agent/` to LangSmith via the `langgraph` CLI (installed by `uv sync`). The deploy config is `langgraph.json` at the project root.
 
-Your `LANGSMITH_API_KEY` must have deployment permissions (use a `lsv2_sk_...` service key).
+Your `LANGSMITH_API_KEY` must have deployment permissions — use a workspace-scoped service key (`lsv2_sk_...`). See [API key guide](#langsmith-api-key-guide).
 
 ## Build Your Own Agent
 
@@ -153,8 +153,8 @@ deep-agents-interrupt-resume/
 
 ## Common Issues
 
-**`langgraph deploy` fails with 403 / permission denied**
-Your API key is a personal token. Generate a service key (`lsv2_sk_...`) in LangSmith settings.
+**`langgraph deploy` or tracing fails with 403 Forbidden**
+Your API key is likely org-scoped. Create a workspace-scoped service key (`lsv2_sk_...`) or use a personal access token (`lsv2_pt_...`) — see [API key guide](#langsmith-api-key-guide).
 
 **Notebook can't find `utils` / `agents`**
 Each module's setup cell prepends `project_root` (the project root) to `sys.path`. If you moved a notebook, update the `Path().resolve().parent` line to point at the project root.
